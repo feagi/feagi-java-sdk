@@ -11,7 +11,6 @@ This repository is a **starter skeleton** for a Rust-backed FEAGI Java SDK inten
 
 ### Project layout
 - `sdk-core`: public API types (config, enums, exceptions, interfaces). No JNI here.
-- `sdk-engine`: engine control utilities (FEAGI binary discovery, process lifecycle).
 - `sdk-native`: JNI-facing bindings and a small native loader (no networking defaults).
 
 ### JNI bridge location

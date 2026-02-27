@@ -16,5 +16,10 @@ sourceSets {
 
 dependencies {
     // Intentionally minimal for the skeleton.
+    testImplementation("org.junit.jupiter:junit-jupiter:5.10.2")
+}
+
+tasks.test {
+    useJUnitPlatform()
 }
 

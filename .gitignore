@@ -8,40 +8,11 @@ build/
 *.iml
 .vscode/
 
-# Eclipse
-.classpath
-.project
-.settings/
-
 # OS noise
 .DS_Store
 Thumbs.db
-Desktop.ini
-
-# Java
-*.class
-hs_err_pid*
 
 # Logs / temp
 *.log
 *--temp.*
 
-# Native libraries (built locally)
-*.so
-*.dylib
-*.dll
-*.jnilib
-
-# FEAGI runtime (created by `feagi init`)
-.feagi/
-
-# AI context file — per-developer, not tracked
-/CLAUDE.md
-.claude/
-
-# Python SDK reference — local only
-/python-sdk-reference/
-
-# Verification artifacts
-*.jsh
-feagi-discovery-verification-log.txt

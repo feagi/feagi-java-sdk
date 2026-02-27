@@ -5,9 +5,6 @@
 
 package io.feagi.sdk.nativeffi;
 
-import java.util.Base64;
-import java.util.Objects;
-
 /**
  * JNI bindings surface (skeleton).
  *
@@ -204,36 +201,8 @@ public final class FeagiNativeBindings {
 
     /**
      * Set the required auth token as base64 (must decode to 32 bytes).
-     *
-     * <p>Validates the token at the Java layer before passing to native code.
-     *
-     * @param cfgHandle        native configuration handle
-     * @param authTokenBase64  the auth token encoded in standard Base64
-     *                         (RFC 4648 section 4, using {@code +} and {@code /}).
-     *                         URL-safe Base64 ({@code -} and {@code _}) is not accepted.
-     * @return native status code
-     * @throws NullPointerException     if authTokenBase64 is null
-     * @throws IllegalArgumentException if the token is not valid base64 or does not decode to 32 bytes
      */
-    public static int feagiConfigSetAuthTokenBase64(
-            long cfgHandle,
-            String authTokenBase64
-    ) {
-        Objects.requireNonNull(authTokenBase64, "authTokenBase64");
-        if (authTokenBase64.contains("-") || authTokenBase64.contains("_")) {
-            throw new IllegalArgumentException(
-                    "Auth token appears to use URL-safe Base64 (- or _ characters). "
-                    + "Use standard Base64 encoding (+ and /) instead.");
-        }
-        byte[] decoded = Base64.getDecoder().decode(authTokenBase64);
-        if (decoded.length != 32) {
-            throw new IllegalArgumentException(
-                    "Auth token must decode to exactly 32 bytes, got " + decoded.length);
-        }
-        return nativeConfigSetAuthTokenBase64(cfgHandle, authTokenBase64);
-    }
-
-    static native int nativeConfigSetAuthTokenBase64(
+    public static native int feagiConfigSetAuthTokenBase64(
             long cfgHandle,
             String authTokenBase64
     );
