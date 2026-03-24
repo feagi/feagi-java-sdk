@@ -25,9 +25,9 @@ import java.util.logging.Logger;
  *
  * <p>The agent type is automatically derived from capabilities during {@link #connect()}:
  * <ul>
- *   <li>{@code vision_unit} present → SENSORY</li>
- *   <li>{@code motor_unit} or {@code motor_units} present → MOTOR</li>
- *   <li>Both present → BOTH</li>
+ *   <li>{@code vision_unit} present -&gt; SENSORY</li>
+ *   <li>{@code motor_unit} or {@code motor_units} present -&gt; MOTOR</li>
+ *   <li>Both present -&gt; BOTH</li>
  * </ul>
  *
  * <p>Usage:
@@ -40,13 +40,13 @@ import java.util.logging.Logger;
  *
  *     {@literal @Override}
  *     public Map<String, byte[]> mapSensors(Object hardwareData) {
- *         // Convert hardware data → FEAGI format
+ *         // Convert hardware data -&gt; FEAGI format
  *         return Map.of("camera", imageBytes);
  *     }
  *
  *     {@literal @Override}
  *     public Object mapMotors(Map<String, Object> feagiOutput) {
- *         // Convert FEAGI commands → hardware format
+ *         // Convert FEAGI commands -&gt; hardware format
  *         return motorCommands;
  *     }
  * }
@@ -136,9 +136,9 @@ public abstract class BaseAgent {
      *
      * <p>FEAGI 2.0 capability format:
      * <ul>
-     *   <li>{@code vision_unit} present → SENSORY</li>
-     *   <li>{@code motor_unit} or {@code motor_units} present → MOTOR</li>
-     *   <li>Both present → BOTH</li>
+     *   <li>{@code vision_unit} present -&gt; SENSORY</li>
+     *   <li>{@code motor_unit} or {@code motor_units} present -&gt; MOTOR</li>
+     *   <li>Both present -&gt; BOTH</li>
      * </ul>
      *
      * @return derived AgentType
