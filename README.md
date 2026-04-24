@@ -31,12 +31,12 @@ FEAGI serves as the core neural runtime behind **Neurorobotics Studio**, powerin
 
 ```kotlin
 dependencies {
-    implementation("io.feagi:sdk-core:0.1.0")
-    implementation("io.feagi:sdk-native:0.1.0")
+    implementation("org.feagi:feagi-sdk-core:0.0.2")
+    implementation("org.feagi:feagi-sdk-native:0.0.2")
     // Optional: Engine control
-    implementation("io.feagi:sdk-engine:0.1.0")
+    implementation("org.feagi:feagi-sdk-engine:0.0.2")
     // Optional: CLI tools
-    implementation("io.feagi:sdk-cli:0.1.0")
+    implementation("org.feagi:feagi-sdk-cli:0.0.2")
 }
 ```
 
@@ -44,31 +44,31 @@ dependencies {
 
 Add the following to your `pom.xml` to consume the published artifacts:
 
-**sdk-core** (public API types, no native code):
+**feagi-sdk-core** (public API types, no native code):
 
 ```xml
 <dependency>
   <groupId>org.feagi</groupId>
-  <artifactId>sdk-core</artifactId>
-  <version>0.0.1</version>
+  <artifactId>feagi-sdk-core</artifactId>
+  <version>0.0.2</version>
 </dependency>
 ```
 
-**sdk-native** (JNI bindings + native library for your platform):
+**feagi-sdk-native** (JNI bindings + native library for your platform):
 
 ```xml
 <!-- JNI binding classes -->
 <dependency>
   <groupId>org.feagi</groupId>
-  <artifactId>sdk-native</artifactId>
-  <version>0.0.1</version>
+  <artifactId>feagi-sdk-native</artifactId>
+  <version>0.0.2</version>
 </dependency>
 
 <!-- Native library for your target platform (choose one classifier) -->
 <dependency>
   <groupId>org.feagi</groupId>
-  <artifactId>sdk-native</artifactId>
-  <version>0.0.1</version>
+  <artifactId>feagi-sdk-native</artifactId>
+  <version>0.0.2</version>
   <classifier>linux-x86_64</classifier>
 </dependency>
 ```
@@ -91,15 +91,15 @@ runtime — no manual `java.library.path` configuration is required.
 
 ```kotlin
 dependencies {
-    implementation("org.feagi:sdk-core:0.0.1")
-    implementation("org.feagi:sdk-native:0.0.1")
+    implementation("org.feagi:feagi-sdk-core:0.0.2")
+    implementation("org.feagi:feagi-sdk-native:0.0.2")
 
     // Choose the classifier matching your target platform:
-    runtimeOnly("org.feagi:sdk-native:0.0.1:linux-x86_64")
-    // runtimeOnly("org.feagi:sdk-native:0.0.1:linux-aarch64")
-    // runtimeOnly("org.feagi:sdk-native:0.0.1:osx-x86_64")
-    // runtimeOnly("org.feagi:sdk-native:0.0.1:osx-aarch64")
-    // runtimeOnly("org.feagi:sdk-native:0.0.1:windows-x86_64")
+    runtimeOnly("org.feagi:feagi-sdk-native:0.0.2:linux-x86_64")
+    // runtimeOnly("org.feagi:feagi-sdk-native:0.0.2:linux-aarch64")
+    // runtimeOnly("org.feagi:feagi-sdk-native:0.0.2:osx-x86_64")
+    // runtimeOnly("org.feagi:feagi-sdk-native:0.0.2:osx-aarch64")
+    // runtimeOnly("org.feagi:feagi-sdk-native:0.0.2:windows-x86_64")
 }
 ```
 
@@ -126,27 +126,27 @@ mvn -Prelease clean deploy
 
 Release-triggered CI deployment:
 ```bash
-# Create and publish GitHub release 0.0.1
+# Create and publish GitHub release 0.0.2
 # This triggers .github/workflows/publish-maven-central.yml
 ```
 
 ### Native dependency model (planned)
 - Publish native libs from `feagi-java-ffi` as **platform classifier artifacts** (e.g., `linux-aarch64`, `linux-x86_64`, `osx-aarch64`, `windows-x86_64`).
-- `sdk-native` will be responsible for loading the correct native library and enforcing the ABI handshake.
+- `feagi-sdk-native` will be responsible for loading the correct native library and enforcing the ABI handshake.
 
 ### Maven Dependencies
 
 ```xml
 <dependencies>
     <dependency>
-        <groupId>io.feagi</groupId>
-        <artifactId>sdk-core</artifactId>
-        <version>0.1.0</version>
+        <groupId>org.feagi</groupId>
+        <artifactId>feagi-sdk-core</artifactId>
+        <version>0.0.2</version>
     </dependency>
     <dependency>
-        <groupId>io.feagi</groupId>
-        <artifactId>sdk-native</artifactId>
-        <version>0.1.0</version>
+        <groupId>org.feagi</groupId>
+        <artifactId>feagi-sdk-native</artifactId>
+        <version>0.0.2</version>
     </dependency>
 </dependencies>
 ```
@@ -179,7 +179,7 @@ feagi-java-sdk/
 └── sdk-native/    # JNI bindings (internal use, auto-loaded)
 ```
 
-### sdk-core
+### feagi-sdk-core
 
 Core API module containing:
 
@@ -191,7 +191,7 @@ Core API module containing:
 - **Agent Framework**: `BaseAgent` abstract base class, `VideoStreamAgent`
 - **Client**: `NativeFeagiAgentClient` implementation
 
-### sdk-engine
+### feagi-sdk-engine
 
 FEAGI engine control:
 
@@ -200,7 +200,7 @@ FEAGI engine control:
 - `BvDiscovery` - Brain Visualizer discovery
 - `FeagiDiscovery` - FEAGI service discovery
 
-### sdk-cli
+### feagi-sdk-cli
 
 Command-line tools (`feagi` command):
 
@@ -212,7 +212,7 @@ feagi status   # Check status
 feagi bv start # Start Brain Visualizer
 ```
 
-### sdk-native
+### feagi-sdk-native
 
 JNI bindings and native library loading. This module automatically handles:
 

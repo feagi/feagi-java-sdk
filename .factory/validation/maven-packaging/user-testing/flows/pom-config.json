@@ -100,7 +100,7 @@
         },
         {
           "action": "Compare version between root POM and root build.gradle.kts",
-          "expected": "Both use 0.0.1",
+          "expected": "Both use 0.0.2",
           "observed": "Root POM: version=0.0.1. Root Gradle: version='0.0.1'. Match confirmed."
         },
         {
@@ -168,22 +168,22 @@
       "steps": [
         {
           "action": "Extract version from root build.gradle.kts",
-          "expected": "version = '0.0.1'",
+          "expected": "version = '0.0.2'",
           "observed": "version = \"0.0.1\" on line 7 of root build.gradle.kts"
         },
         {
           "action": "Extract version from root pom.xml",
-          "expected": "version 0.0.1",
+          "expected": "version 0.0.2",
           "observed": "<version>0.0.1</version> in root pom.xml"
         },
         {
           "action": "Extract parent version from all child POMs",
-          "expected": "All child POMs reference parent version 0.0.1",
+          "expected": "All child POMs reference parent version 0.0.2",
           "observed": "sdk-core/pom.xml: parent version 0.0.1. sdk-native/pom.xml: parent version 0.0.1. sdk-engine/pom.xml: parent version 0.0.1. sdk-cli/pom.xml: parent version 0.0.1."
         },
         {
           "action": "Check Gradle submodule version inheritance",
-          "expected": "Submodules inherit 0.0.1 from root allprojects block",
+          "expected": "Submodules inherit 0.0.2 from root allprojects block",
           "observed": "Root build.gradle.kts allprojects { version = \"0.0.1\" }. sdk-native/build.gradle.kts has NO version override (previously noted 0.0.1-beta.0 discrepancy appears resolved). sdk-core/build.gradle.kts has no version override. All inherit 0.0.1."
         },
         {

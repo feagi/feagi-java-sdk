@@ -6,12 +6,12 @@
 
     <parent>
         <groupId>org.feagi</groupId>
-        <artifactId>feagi-java-sdk-parent</artifactId>
-        <version>0.0.1</version>
+        <artifactId>feagi-sdk-parent</artifactId>
+        <version>0.0.2</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>sdk-engine</artifactId>
+    <artifactId>feagi-sdk-engine</artifactId>
     <name>FEAGI Java SDK Engine</name>
     <description>Engine control and runtime utility layer for FEAGI Java SDK.</description>
 

@@ -6,19 +6,19 @@
 
     <parent>
         <groupId>org.feagi</groupId>
-        <artifactId>feagi-java-sdk-parent</artifactId>
-        <version>0.0.1</version>
+        <artifactId>feagi-sdk-parent</artifactId>
+        <version>0.0.2</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>sdk-cli</artifactId>
+    <artifactId>feagi-sdk-cli</artifactId>
     <name>FEAGI Java SDK CLI</name>
     <description>Command-line interface for FEAGI Java SDK workflows.</description>
 
     <dependencies>
         <dependency>
             <groupId>org.feagi</groupId>
-            <artifactId>sdk-engine</artifactId>
+            <artifactId>feagi-sdk-engine</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

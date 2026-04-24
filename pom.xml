@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.feagi</groupId>
-    <artifactId>feagi-java-sdk-parent</artifactId>
-    <version>0.0.1</version>
+    <artifactId>feagi-sdk-parent</artifactId>
+    <version>0.0.2</version>
     <packaging>pom</packaging>
 
     <name>FEAGI Java SDK Parent</name>

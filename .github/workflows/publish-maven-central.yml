@@ -6,7 +6,7 @@
 # 3. (Conditional) Download native binaries from remote source
 # 4. Validate native binaries exist for all 5 supported platforms
 # 5. Import GPG signing key
-# 6. Deploy all artifacts (sdk-core, sdk-native + classified JARs, sources, javadocs)
+# 6. Deploy all artifacts (feagi-sdk-core, feagi-sdk-engine, feagi-sdk-native + classified JARs, feagi-sdk-cli, sources, javadocs)
 #
 # Triggers:
 # - Automatically on GitHub Release publication

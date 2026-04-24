@@ -6,19 +6,19 @@
 
     <parent>
         <groupId>org.feagi</groupId>
-        <artifactId>feagi-java-sdk-parent</artifactId>
-        <version>0.0.1</version>
+        <artifactId>feagi-sdk-parent</artifactId>
+        <version>0.0.2</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>sdk-native</artifactId>
+    <artifactId>feagi-sdk-native</artifactId>
     <name>FEAGI Java SDK Native Bridge</name>
     <description>JNI-facing FEAGI Java SDK module for native FFI integration.</description>
 
     <dependencies>
         <dependency>
             <groupId>org.feagi</groupId>
-            <artifactId>sdk-core</artifactId>
+            <artifactId>feagi-sdk-core</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

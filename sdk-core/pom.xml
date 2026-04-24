@@ -6,12 +6,12 @@
 
     <parent>
         <groupId>org.feagi</groupId>
-        <artifactId>feagi-java-sdk-parent</artifactId>
-        <version>0.0.1</version>
+        <artifactId>feagi-sdk-parent</artifactId>
+        <version>0.0.2</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>sdk-core</artifactId>
+    <artifactId>feagi-sdk-core</artifactId>
     <name>FEAGI Java SDK Core</name>
     <description>Core Java types and APIs for FEAGI integration.</description>
 
