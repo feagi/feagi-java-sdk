@@ -70,6 +70,26 @@ import java.util.logging.Logger;
  * {@link #connect()} and {@link #close()} to prevent concurrent double-connect or
  * use-after-free races. {@link #isConnected()} reads a {@code volatile} field and is
  * safe from any thread without holding the lock.
+ *
+ * <h2>FEAGI lifecycle recovery (TODO)</h2>
+ * The Rust crate {@code feagi-agent::clients::recovery} ships the cross-SDK
+ * source of truth for detecting genome reloads, FEAGI restarts, and network
+ * drops. The Python SDK exposes this via {@code feagi.pns.health_monitor};
+ * the Java SDK still needs equivalent surface:
+ * <ul>
+ *   <li>JNI wrappers for {@code HealthSnapshot}, {@code HealthWatcher},
+ *       {@code RecoveryTrigger}, {@code ReconnectPolicyConfig},
+ *       {@code ReconnectPolicy}, {@code ReconnectDecision}.</li>
+ *   <li>JNI wrapper for {@code fetch_health_snapshot_blocking} (host, port,
+ *       timeout — no defaults).</li>
+ *   <li>A {@code reconnect(reason)} method on this class implementing the
+ *       same contract as Python's {@code PyAgentClient.reconnect}: best-effort
+ *       disconnect, fresh connect, replay of any cached device registrations.</li>
+ *   <li>A {@code FeagiHealthMonitor} facade that composes the above in the
+ *       documented tick order (fetch -> observe -> decide -> reconnect).</li>
+ * </ul>
+ * No new decision logic may live in Java code: every threshold/transition
+ * goes through the Rust types so behaviour matches Rust and Python exactly.
  */
 public final class NativeFeagiAgentClient implements FeagiAgentClient {
 
